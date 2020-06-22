@@ -1,7 +1,6 @@
-package com.longtran.web.jdbc;
+package com.web.jdbc;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -10,9 +9,9 @@ import java.util.List;
 
 public class StudentDbUtil {
     private static DataSource dataSource;
-    public StudentDbUtil(DataSource theDataSource){
-        dataSource = theDataSource;
-    }
+//    public StudentDbUtil(DataSource theDataSource){
+//        dataSource = theDataSource;
+//    }
     public static List<Student> getStudents() throws Exception{
         List<Student> students = new ArrayList<>();
         Connection myConn = null;
@@ -21,7 +20,7 @@ public class StudentDbUtil {
 
         try {
             // get a connection
-            myConn = dataSource.getConnection();
+            myConn = ConnectionUtils.getMyConnection();
             // create SQL statement
             String sql = "select * from student order by last_name";
             mySt=myConn.createStatement();
@@ -38,6 +37,7 @@ public class StudentDbUtil {
                 Student tempStudent = new Student(id,firstName,lastName,email);
                 // add it to the list of students
                 students.add(tempStudent);
+
             }
 
             return students;
@@ -45,8 +45,9 @@ public class StudentDbUtil {
             // close JDBC objects
             close(myConn,mySt,myRs);
         }
-
     }
+
+
 
     private static void close(Connection myConn, Statement mySt, ResultSet myRs) {
         try {

@@ -1,4 +1,4 @@
-package com.longtran.web.jdbc;
+package com.web.jdbc;
 
 public class Student {
     private int id;

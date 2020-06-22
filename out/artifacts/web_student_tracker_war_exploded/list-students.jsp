@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.longtran.web.jdbc.Student" %><%--
+<%@ page import="com.web.jdbc.Student" %><%--
   Created by IntelliJ IDEA.
   User: huylo
   Date: 6/9/2020

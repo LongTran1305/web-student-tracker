@@ -1,4 +1,4 @@
-package com.longtran.web.jdbc;
+package com.web.jdbc;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
